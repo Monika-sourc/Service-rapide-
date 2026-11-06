@@ -23,19 +23,79 @@
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-content">
-            <div class="badge">Decyzja w 15 minut!</div>
+            <div class="badge"><i class="fa-solid fa-bolt"></i> Decyzja w 15 minut!</div>
             <h1>Szybka pożyczka prywatna online</h1>
-            <p>Potrzebujesz gotówki na dowolny cel? Wypełnij wniosek i otrzymaj pieniądze nawet w ciągu 24 godzin. Bez wychodzenia z domu, bez zbędnych formalności.</p>
+            <p>Potrzebujesz gotówki na dowolny cel? Wypełnij wniosek i otrzymaj pieniądze nawet w ciągu <strong>24 godzin</strong>. Bez wychodzenia z domu, bez zbędnych formalności.</p>
             <div class="trust-badges">
                 <span><i class="fa-solid fa-shield-halved"></i> 100% Bezpiecznie</span>
                 <span><i class="fa-solid fa-lock"></i> Dane szyfrowane</span>
-                <span><i class="fa-solid fa-chart-line"></i> RRSO od 5.5%</span>
+                <span><i class="fa-solid fa-percent"></i> Oprocentowanie 2%</span>
+            </div>
+            <div class="hero-cta">
+                <a href="#apply" class="btn-hero"><i class="fa-solid fa-arrow-down"></i> Złóż wniosek teraz</a>
             </div>
         </div>
         <div class="hero-image">
             <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Finance">
         </div>
     </header>
+
+    <!-- TRUST STATS BAR -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">45 000+</div>
+            <div class="stat-label">Zadowolonych klientów</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">250 M+</div>
+            <div class="stat-label">PLN wypłaconych</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">15 min</div>
+            <div class="stat-label">Decyzja o pożyczce</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">2%</div>
+            <div class="stat-label">Oprocentowanie</div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+        <div class="section-header">
+            <span class="section-badge">PROSTY PROCES</span>
+            <h2>Jak działa nasz serwis?</h2>
+            <p>Uzyskanie pożyczki w FinanceExpress jest proste, szybkie i całkowicie bezpieczne. Wystarczą 3 kroki, aby otrzymać środki.</p>
+        </div>
+
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="how-icon"><i class="fa-solid fa-file-signature"></i></div>
+                <h3>1. Wypełnij wniosek</h3>
+                <p>Poświęć 5 minut na wypełnienie krótkiego formularza online. Potrzebujemy tylko podstawowych danych: imię, e-mail, telefon i kwota.</p>
+                <span class="how-time"><i class="fa-solid fa-clock"></i> 5 minut</span>
+            </div>
+            <div class="how-card">
+                <div class="how-icon"><i class="fa-solid fa-magnifying-glass-dollar"></i></div>
+                <h3>2. Otrzymaj decyzję</h3>
+                <p>Nasz system weryfikuje Twój wniosek i wysyła decyzję na Twój e-mail. Czas oczekiwania to <strong>od 15 minut do maksymalnie 24 godzin</strong>.</p>
+                <span class="how-time highlight"><i class="fa-solid fa-clock"></i> 15 min – 24 h</span>
+            </div>
+            <div class="how-card">
+                <div class="how-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                <h3>3. Odbierz pieniądze</h3>
+                <p>Po akceptacji umowy środki trafiają bezpośrednio na Twoje konto bankowe. Bez ukrytych opłat, bez niespodzianek.</p>
+                <span class="how-time"><i class="fa-solid fa-clock"></i> Natychmiast</span>
+            </div>
+        </div>
+
+        <div class="how-notice">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <div>
+                <strong>Gwarancja czasu:</strong> Decyzja o przyznaniu pożyczki zostanie podjęta w ciągu <u>maksymalnie 24 godzin</u> od złożenia wniosku. W większości przypadków trwa to zaledwie 15 minut.
+            </div>
+        </div>
+    </section>
 
     <!-- FORM SECTION -->
     <section class="form-section" id="apply">
@@ -93,6 +153,14 @@
                     </select>
                 </div>
 
+                <div class="rate-box">
+                    <i class="fa-solid fa-percent"></i>
+                    <div>
+                        <strong>Oprocentowanie 2%</strong>
+                        <small>Stałe oprocentowanie przez cały okres spłaty.</small>
+                    </div>
+                </div>
+
                 <button type="submit" id="submitBtn">
                     <span class="btn-text">Złóż wniosek</span>
                     <span class="btn-loader" style="display: none;"><i class="fa-solid fa-circle-notch fa-spin"></i> Przetwarzanie...</span>
@@ -115,12 +183,54 @@
             <div class="step-card">
                 <div class="step-number">2</div>
                 <h3>Otrzymaj decyzję</h3>
-                <p>Nasz system automatycznie przeanalizuje Twój wniosek i w 15 minut otrzymasz decyzję.</p>
+                <p>Nasz system automatycznie przeanalizuje Twój wniosek i w 15 minut (maks. 24 h) otrzymasz decyzję.</p>
             </div>
             <div class="step-card">
                 <div class="step-number">3</div>
                 <h3>Dostaniesz przelew</h3>
                 <p>Po akceptacji umowy, pieniądze trafią na Twoje konto nawet w ciągu kilku godzin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEES SECTION -->
+    <section class="guarantees">
+        <div class="section-header">
+            <span class="section-badge">NASZE GWARANCJE</span>
+            <h2>Dlaczego warto nam zaufać?</h2>
+            <p>Bezpieczeństwo i transparentność to fundamenty naszego serwisu. Oto co gwarantujemy każdemu klientowi.</p>
+        </div>
+
+        <div class="guarantees-grid">
+            <div class="guarantee-card">
+                <div class="guarantee-icon"><i class="fa-solid fa-lock"></i></div>
+                <h3>Pełne bezpieczeństwo danych</h3>
+                <p>Twoje dane osobowe są szyfrowane (SSL 256-bit) i nigdy nie są udostępniane stronom trzecim. Spełniamy wymogi RODO.</p>
+            </div>
+            <div class="guarantee-card">
+                <div class="guarantee-icon"><i class="fa-solid fa-eye-slash"></i></div>
+                <h3>Brak ukrytych opłat</h3>
+                <p>Nie pobieramy żadnych opłat wstępnych. Oprocentowanie wynosi 2% i jest jasno określone w umowie.</p>
+            </div>
+            <div class="guarantee-card">
+                <div class="guarantee-icon"><i class="fa-solid fa-clock"></i></div>
+                <h3>Decyzja do 24 godzin</h3>
+                <p>Gwarantujemy decyzję w ciągu maksymalnie 24 godzin od złożenia wniosku. Zazwyczaj trwa to 15 minut.</p>
+            </div>
+            <div class="guarantee-card">
+                <div class="guarantee-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Elastyczne warunki spłaty</h3>
+                <p>Sam wybierasz okres spłaty – od 6 do 48 miesięcy. Możesz także spłacić pożyczkę wcześniej bez dodatkowych kosztów.</p>
+            </div>
+            <div class="guarantee-card">
+                <div class="guarantee-icon"><i class="fa-solid fa-headset"></i></div>
+                <h3>Wsparcie 24/7</h3>
+                <p>Nasz zespół obsługi klienta jest dostępny przez całą dobę, 7 dni w tygodniu – e-mailem i telefonicznie.</p>
+            </div>
+            <div class="guarantee-card">
+                <div class="guarantee-icon"><i class="fa-solid fa-ban"></i></div>
+                <h3>Zero zobowiązań</h3>
+                <p>Wypełnienie wniosku nic nie kosztuje i nie zobowiązuje Cię do niczego. Decydujesz się dopiero po akceptacji oferty.</p>
             </div>
         </div>
     </section>
@@ -137,7 +247,9 @@
             <!-- Testimonial 1 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">AK</div>
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Anna Kowalska">
+                    </div>
                     <div class="testimonial-info">
                         <h4>Anna Kowalska</h4>
                         <span><i class="fa-solid fa-location-dot"></i> Warszawa, Polska</span>
@@ -152,7 +264,7 @@
                     <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>mBank S.A.</span></div>
                     <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 27 1140 2004 **** 0135</span></div>
                     <div class="detail-item"><i class="fa-solid fa-clock"></i><span>12.03.2024, 14:32</span></div>
-                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Remont domu • 12 miesięcy</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Remont domu • 12 miesięcy • 2%</span></div>
                 </div>
                 <div class="testimonial-proof">
                     <div class="proof-left">
@@ -172,7 +284,9 @@
             <!-- Testimonial 2 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #10b981, #047857);">PN</div>
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Piotr Nowak">
+                    </div>
                     <div class="testimonial-info">
                         <h4>Piotr Nowak</h4>
                         <span><i class="fa-solid fa-location-dot"></i> Kraków, Polska</span>
@@ -187,7 +301,7 @@
                     <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>ING Bank Śląski</span></div>
                     <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 65 1050 1445 **** 3079</span></div>
                     <div class="detail-item"><i class="fa-solid fa-clock"></i><span>28.03.2024, 10:15</span></div>
-                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Zakup samochodu • 24 miesiące</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Zakup samochodu • 24 miesiące • 2%</span></div>
                 </div>
                 <div class="testimonial-proof">
                     <div class="proof-left">
@@ -207,7 +321,9 @@
             <!-- Testimonial 3 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">KW</div>
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Katarzyna Wiśniewska">
+                    </div>
                     <div class="testimonial-info">
                         <h4>Katarzyna Wiśniewska</h4>
                         <span><i class="fa-solid fa-location-dot"></i> Wrocław, Polska</span>
@@ -222,7 +338,7 @@
                     <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>PKO BP S.A.</span></div>
                     <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 48 1020 5558 **** 4231</span></div>
                     <div class="detail-item"><i class="fa-solid fa-clock"></i><span>05.04.2024, 16:48</span></div>
-                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Wakacje • 6 miesięcy</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Wakacje • 6 miesięcy • 2%</span></div>
                 </div>
                 <div class="testimonial-proof">
                     <div class="proof-left">
@@ -242,7 +358,9 @@
             <!-- Testimonial 4 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">MZ</div>
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michał Zieliński">
+                    </div>
                     <div class="testimonial-info">
                         <h4>Michał Zieliński</h4>
                         <span><i class="fa-solid fa-location-dot"></i> Gdańsk, Polska</span>
@@ -257,7 +375,7 @@
                     <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>Santander Bank Polska</span></div>
                     <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 91 1090 1014 **** 1981</span></div>
                     <div class="detail-item"><i class="fa-solid fa-clock"></i><span>19.04.2024, 09:22</span></div>
-                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Rozwój biznesu • 36 miesięcy</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Rozwój biznesu • 36 miesięcy • 2%</span></div>
                 </div>
                 <div class="testimonial-proof">
                     <div class="proof-left">
@@ -277,7 +395,9 @@
             <!-- Testimonial 5 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ec4899, #be185d);">MK</div>
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Magdalena Kamińska">
+                    </div>
                     <div class="testimonial-info">
                         <h4>Magdalena Kamińska</h4>
                         <span><i class="fa-solid fa-location-dot"></i> Poznań, Polska</span>
@@ -292,7 +412,7 @@
                     <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>Alior Bank S.A.</span></div>
                     <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 73 2490 0005 **** 5123</span></div>
                     <div class="detail-item"><i class="fa-solid fa-clock"></i><span>02.05.2024, 11:07</span></div>
-                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Edukacja • 12 miesięcy</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Edukacja • 12 miesięcy • 2%</span></div>
                 </div>
                 <div class="testimonial-proof">
                     <div class="proof-left">
@@ -312,7 +432,9 @@
             <!-- Testimonial 6 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
-                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">TL</div>
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Tomasz Lewandowski">
+                    </div>
                     <div class="testimonial-info">
                         <h4>Tomasz Lewandowski</h4>
                         <span><i class="fa-solid fa-location-dot"></i> Łódź, Polska</span>
@@ -327,7 +449,7 @@
                     <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>Bank Pekao S.A.</span></div>
                     <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 12 1140 1010 **** 5678</span></div>
                     <div class="detail-item"><i class="fa-solid fa-clock"></i><span>15.05.2024, 13:55</span></div>
-                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Wydatki medyczne • 6 miesięcy</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Wydatki medyczne • 6 miesięcy • 2%</span></div>
                 </div>
                 <div class="testimonial-proof">
                     <div class="proof-left">
@@ -346,10 +468,36 @@
         </div>
     </section>
 
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2>Gotowy na szybką pożyczkę?</h2>
+            <p>Dołącz do tysięcy zadowolonych klientów. Decyzja w 15 minut, maksymalnie 24 godziny.</p>
+            <a href="#apply" class="btn-hero"><i class="fa-solid fa-arrow-up"></i> Złóż wniosek teraz</a>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 FinanceExpress. Wszelkie prawa zastrzeżone.</p>
-        <p style="font-size: 12px; margin-top: 10px; color: #94a3b8;">* Kontakt: noreplyinfo.pl@gmail.com</p>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo"><i class="fa-solid fa-building-columns"></i> FinanceExpress</div>
+                <p>Twój zaufany partner finansowy. Szybkie pożyczki online z oprocentowaniem 2%.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Informacje</h4>
+                <p><i class="fa-solid fa-envelope"></i> noreplyinfo.pl@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> +48 123 456 789</p>
+            </div>
+            <div class="footer-col">
+                <h4>Gwarancje</h4>
+                <p><i class="fa-solid fa-shield-halved"></i> Szyfrowanie SSL 256-bit</p>
+                <p><i class="fa-solid fa-clock"></i> Decyzja do 24 godzin</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FinanceExpress. Wszelkie prawa zastrzeżone.</p>
+        </div>
     </footer>
 
     <script src="api.js"></script>
