@@ -22,6 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.testimonial-card, .step-card').forEach(el => observer.observe(el));
 
+    // --- FAQ ACCORDION ---
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Fermer tous les autres
+            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+            
+            // Ouvrir celui cliqué (si fermé)
+            if (!isActive) item.classList.add('active');
+        });
+    });
+
     // --- VALIDATION EMAIL ---
     function isValidEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
