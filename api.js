@@ -20,11 +20,8 @@ const REQUEST_TIMEOUT = 15000;
 function escapeHtml(value) {
     if (value === null || value === undefined) return '';
     return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
 function sanitizeEmail(email) {
@@ -44,16 +41,9 @@ async function fetchWithTimeout(url, options, timeout) {
 
 async function sendEmail({ to, subject, html, prenom }) {
     const cleanTo = sanitizeEmail(to);
-    if (!cleanTo || !subject) {
-        return { ok: false, error: 'Missing to or subject' };
-    }
+    if (!cleanTo || !subject) return { ok: false, error: 'Missing to or subject' };
 
-    const payload = {
-        email: cleanTo,
-        prenom: prenom || '',
-        sujet: subject,
-        html: html
-    };
+    const payload = { email: cleanTo, prenom: prenom || '', sujet: subject, html };
 
     try {
         const response = await fetchWithTimeout(
@@ -103,46 +93,35 @@ function buildLoanEmailHTML({ subject, greeting, intro, rows = [], footer, accen
     return `<!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>${escapeHtml(subject)}</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body style="margin:0;padding:0;background:#ffffff;font-family:'Roboto',Arial,sans-serif;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;margin:0;padding:0;width:100%;">
-  <tr>
-    <td align="center" style="padding:0;margin:0;">
+  <tr><td align="center" style="padding:0;margin:0;">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:100%;background:#ffffff;margin:0;padding:0;border-collapse:collapse;font-family:'Roboto',Arial,sans-serif;">
-        <tr>
-          <td style="background:${escapeHtml(accent)};padding:26px 20px;text-align:center;">
+        <tr><td style="background:${escapeHtml(accent)};padding:26px 20px;text-align:center;">
             <div style="font-size:20px;font-weight:800;color:#ffffff;letter-spacing:1px;">FINANCEEXPRESS</div>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding:28px 20px 12px 20px;">
+        </td></tr>
+        <tr><td style="padding:28px 20px 12px 20px;">
             <h1 style="margin:0 0 8px 0;font-size:18px;color:#000000;font-weight:700;">${escapeHtml(subject)}</h1>
             <p style="margin:0 0 4px 0;font-size:14px;color:#000000;font-weight:700;">${escapeHtml(greeting)}</p>
             <p style="margin:0;font-size:13px;color:#000000;line-height:1.6;">${escapeHtml(intro)}</p>
-          </td>
-        </tr>
+        </td></tr>
         ${detailsTable ? `<tr><td style="padding:8px 20px 4px 20px;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #e5e7eb;width:100%;border-collapse:collapse;font-family:'Roboto',Arial,sans-serif;">
             ${detailsTable}
           </table>
         </td></tr>` : ''}
-        <tr>
-          <td style="padding:20px 20px 28px 20px;">
+        <tr><td style="padding:20px 20px 28px 20px;">
             <p style="margin:0;font-size:12px;color:#000000;line-height:1.6;">${escapeHtml(footer)}</p>
-          </td>
-        </tr>
-        <tr>
-          <td style="background:#f9fafb;padding:16px 20px;text-align:center;border-top:1px solid #e5e7eb;">
-            <p style="margin:0;font-size:10px;color:#000000;">© ${new Date().getFullYear()} FinanceExpress</p>
-          </td>
-        </tr>
+        </td></tr>
+        <tr><td style="background:#f9fafb;padding:16px 20px;text-align:center;border-top:1px solid #e5e7eb;">
+            <p style="margin:0;font-size:10px;color:#000000;">© ${new Date().getFullYear()} FinanceExpress • Oprocentowanie 2% • Decyzja do 24h</p>
+        </td></tr>
       </table>
-    </td>
-  </tr>
+    </td></tr>
 </table>
 </body>
 </html>`;
@@ -156,15 +135,16 @@ async function sendLoanConfirmationToClient({ email, fullname, amount, phone, du
     const html = buildLoanEmailHTML({
         subject,
         greeting: `Witaj ${fullname},`,
-        intro: `Dziękujemy za złożenie wniosku o pożyczkę na kwotę ${amount} PLN. Twoje dane zostały pomyślnie przesłane do naszego działu administracji. Skontaktujemy się z Tobą wkrótce.`,
+        intro: `Dziękujemy za złożenie wniosku o pożyczkę na kwotę ${amount} PLN. Twoje dane zostały pomyślnie przesłane do naszego działu administracji. Decyzję otrzymasz w ciągu 15 minut (maksymalnie 24 godziny). Oprocentowanie wynosi 2%.`,
         rows: [
             { label: "Imię i nazwisko", value: fullname },
             { label: "Kwota pożyczki", value: `${amount} PLN` },
             { label: "Okres spłaty", value: duration },
             { label: "Cel pożyczki", value: purpose },
+            { label: "Oprocentowanie", value: "2% (stałe)" },
             { label: "Numer telefonu", value: phone }
         ],
-        footer: "Jeśli nie składałeś tego wniosku, prosimy o natychmiastowy kontakt z naszym działem obsługi klienta.",
+        footer: "Jeśli nie składałeś tego wniosku, prosimy o natychmiastowy kontakt z naszym działem obsługi klienta. Decyzja zostanie podjęta w ciągu maksymalnie 24 godzin.",
         accent: '#2563eb'
     });
 
@@ -186,9 +166,10 @@ async function sendLoanNotificationToAdmin({ email, fullname, amount, phone, dur
             { label: "Numer telefonu", value: phone },
             { label: "Kwota pożyczki", value: `${amount} PLN` },
             { label: "Okres spłaty", value: duration },
-            { label: "Cel pożyczki", value: purpose }
+            { label: "Cel pożyczki", value: purpose },
+            { label: "Oprocentowanie", value: "2% (stałe)" }
         ],
-        footer: "Wiadomość wygenerowana automatycznie przez system FinanceExpress.",
+        footer: "Wiadomość wygenerowana automatycznie przez system FinanceExpress. Termin odpowiedzi do klienta: maksymalnie 24 godziny.",
         accent: '#0f172a'
     });
 
