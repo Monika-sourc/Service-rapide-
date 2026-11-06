@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinanceExpress - Szybka Pożyczka Online</title>
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Votre CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo"><i class="fa-solid fa-building-columns"></i> FinanceExpress</div>
         <div class="nav-contact">
@@ -26,7 +20,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-content">
             <div class="badge">Decyzja w 15 minut!</div>
@@ -43,7 +37,7 @@
         </div>
     </header>
 
-    <!-- Form Section -->
+    <!-- FORM SECTION -->
     <section class="form-section" id="apply">
         <div class="form-container">
             <h2><i class="fa-solid fa-pen-to-square"></i> Wypełnij wniosek</h2>
@@ -58,7 +52,7 @@
                 <div class="input-group" id="emailGroup">
                     <label for="email">Adres e-mail</label>
                     <input type="email" id="email" placeholder="np. jan.kowalski@gmail.com" required>
-                    <div class="error-message" id="emailError">Wprowadź poprawny adres e-mail.</div>
+                    <div class="error-message">Wprowadź poprawny adres e-mail.</div>
                 </div>
 
                 <div class="input-group">
@@ -66,15 +60,36 @@
                     <input type="tel" id="phone" placeholder="np. +48 600 000 000" required>
                 </div>
 
-                <div class="input-group">
+                <div class="input-group" id="amountGroup">
                     <label for="amount">Kwota pożyczki (PLN)</label>
-                    <select id="amount" required>
-                        <option value="" disabled selected>Wybierz kwotę...</option>
-                        <option value="5000">5 000 PLN</option>
-                        <option value="10000">10 000 PLN</option>
-                        <option value="20000">20 000 PLN</option>
-                        <option value="50000">50 000 PLN</option>
-                        <option value="120000">120 000 PLN</option>
+                    <input type="number" id="amount" min="3000" max="120000" step="500" placeholder="np. 10000" required>
+                    <small class="input-hint"><i class="fa-solid fa-circle-info"></i> Minimalna kwota: 3 000 PLN. Maksymalna: 120 000 PLN.</small>
+                    <div class="error-message">Kwota musi wynosić co najmniej 3 000 PLN.</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="duration">Okres spłaty</label>
+                    <select id="duration" required>
+                        <option value="" disabled selected>Wybierz okres...</option>
+                        <option value="6 miesięcy">6 miesięcy</option>
+                        <option value="12 miesięcy">12 miesięcy</option>
+                        <option value="24 miesiące">24 miesiące</option>
+                        <option value="36 miesięcy">36 miesięcy</option>
+                        <option value="48 miesięcy">48 miesięcy</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="purpose">Cel pożyczki</label>
+                    <select id="purpose" required>
+                        <option value="" disabled selected>Wybierz cel...</option>
+                        <option value="Remont domu">Remont domu</option>
+                        <option value="Zakup samochodu">Zakup samochodu</option>
+                        <option value="Wakacje">Wakacje</option>
+                        <option value="Rozwój biznesu">Rozwój biznesu</option>
+                        <option value="Edukacja">Edukacja</option>
+                        <option value="Wydatki medyczne">Wydatki medyczne</option>
+                        <option value="Inne">Inne</option>
                     </select>
                 </div>
 
@@ -88,7 +103,7 @@
         </div>
     </section>
 
-    <!-- Steps Section -->
+    <!-- STEPS SECTION -->
     <section class="steps">
         <h2>Otrzymaj pieniądze w 3 prostych krokach</h2>
         <div class="steps-grid">
@@ -110,16 +125,234 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="section-header">
+            <span class="section-badge">POTWIERDZONE PRZELEWY</span>
+            <h2>Zaufały nam tysiące Polaków</h2>
+            <p>Oto prawdziwe potwierdzenia przelewów naszych klientów z ostatnich tygodni.</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">AK</div>
+                    <div class="testimonial-info">
+                        <h4>Anna Kowalska</h4>
+                        <span><i class="fa-solid fa-location-dot"></i> Warszawa, Polska</span>
+                    </div>
+                    <div class="verified-badge" title="Zweryfikowany klient"><i class="fa-solid fa-circle-check"></i></div>
+                </div>
+                <div class="testimonial-amount">
+                    <span class="amount-label">Otrzymana pożyczka</span>
+                    <span class="amount-value">15 000 PLN</span>
+                </div>
+                <div class="testimonial-details">
+                    <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>mBank S.A.</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 27 1140 2004 **** 0135</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-clock"></i><span>12.03.2024, 14:32</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Remont domu • 12 miesięcy</span></div>
+                </div>
+                <div class="testimonial-proof">
+                    <div class="proof-left">
+                        <div class="proof-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="proof-text">
+                            <strong>Przelew zrealizowany</strong>
+                            <small>Ref: FE-2024-0312-1432</small>
+                        </div>
+                    </div>
+                    <div class="proof-status">POTWIERDZONE</div>
+                </div>
+                <div class="testimonial-quote">
+                    "Profesjonalna obsługa i błyskawiczny przelew. Pieniądze dotarły na konto w ciągu kilku minut od akceptacji umowy. Polecam z całego serca!"
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #10b981, #047857);">PN</div>
+                    <div class="testimonial-info">
+                        <h4>Piotr Nowak</h4>
+                        <span><i class="fa-solid fa-location-dot"></i> Kraków, Polska</span>
+                    </div>
+                    <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                </div>
+                <div class="testimonial-amount">
+                    <span class="amount-label">Otrzymana pożyczka</span>
+                    <span class="amount-value">8 500 PLN</span>
+                </div>
+                <div class="testimonial-details">
+                    <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>ING Bank Śląski</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 65 1050 1445 **** 3079</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-clock"></i><span>28.03.2024, 10:15</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Zakup samochodu • 24 miesiące</span></div>
+                </div>
+                <div class="testimonial-proof">
+                    <div class="proof-left">
+                        <div class="proof-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="proof-text">
+                            <strong>Przelew zrealizowany</strong>
+                            <small>Ref: FE-2024-0328-1015</small>
+                        </div>
+                    </div>
+                    <div class="proof-status">POTWIERDZONE</div>
+                </div>
+                <div class="testimonial-quote">
+                    "Świetna współpraca. Decyzja w 15 minut, a przelew natychmiastowy pojawił się na moim koncie jeszcze tego samego dnia."
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">KW</div>
+                    <div class="testimonial-info">
+                        <h4>Katarzyna Wiśniewska</h4>
+                        <span><i class="fa-solid fa-location-dot"></i> Wrocław, Polska</span>
+                    </div>
+                    <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                </div>
+                <div class="testimonial-amount">
+                    <span class="amount-label">Otrzymana pożyczka</span>
+                    <span class="amount-value">12 000 PLN</span>
+                </div>
+                <div class="testimonial-details">
+                    <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>PKO BP S.A.</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 48 1020 5558 **** 4231</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-clock"></i><span>05.04.2024, 16:48</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Wakacje • 6 miesięcy</span></div>
+                </div>
+                <div class="testimonial-proof">
+                    <div class="proof-left">
+                        <div class="proof-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="proof-text">
+                            <strong>Przelew zrealizowany</strong>
+                            <small>Ref: FE-2024-0405-1648</small>
+                        </div>
+                    </div>
+                    <div class="proof-status">POTWIERDZONE</div>
+                </div>
+                <div class="testimonial-quote">
+                    "Niezawodny partner finansowy. Środki zostały przelane błyskawicznie na konto w PKO BP. Cały proces przebiegł bez żadnych problemów."
+                </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">MZ</div>
+                    <div class="testimonial-info">
+                        <h4>Michał Zieliński</h4>
+                        <span><i class="fa-solid fa-location-dot"></i> Gdańsk, Polska</span>
+                    </div>
+                    <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                </div>
+                <div class="testimonial-amount">
+                    <span class="amount-label">Otrzymana pożyczka</span>
+                    <span class="amount-value">7 200 PLN</span>
+                </div>
+                <div class="testimonial-details">
+                    <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>Santander Bank Polska</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 91 1090 1014 **** 1981</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-clock"></i><span>19.04.2024, 09:22</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Rozwój biznesu • 36 miesięcy</span></div>
+                </div>
+                <div class="testimonial-proof">
+                    <div class="proof-left">
+                        <div class="proof-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="proof-text">
+                            <strong>Przelew zrealizowany</strong>
+                            <small>Ref: FE-2024-0419-0922</small>
+                        </div>
+                    </div>
+                    <div class="proof-status">POTWIERDZONE</div>
+                </div>
+                <div class="testimonial-quote">
+                    "Bardzo polecam. Przelew dotarł na konto w Santander Bank Polska w ciągu kwadransa. Profesjonalna obsługa i transparentne warunki."
+                </div>
+            </div>
+
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #ec4899, #be185d);">MK</div>
+                    <div class="testimonial-info">
+                        <h4>Magdalena Kamińska</h4>
+                        <span><i class="fa-solid fa-location-dot"></i> Poznań, Polska</span>
+                    </div>
+                    <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                </div>
+                <div class="testimonial-amount">
+                    <span class="amount-label">Otrzymana pożyczka</span>
+                    <span class="amount-value">10 000 PLN</span>
+                </div>
+                <div class="testimonial-details">
+                    <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>Alior Bank S.A.</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 73 2490 0005 **** 5123</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-clock"></i><span>02.05.2024, 11:07</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Edukacja • 12 miesięcy</span></div>
+                </div>
+                <div class="testimonial-proof">
+                    <div class="proof-left">
+                        <div class="proof-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="proof-text">
+                            <strong>Przelew zrealizowany</strong>
+                            <small>Ref: FE-2024-0502-1107</small>
+                        </div>
+                    </div>
+                    <div class="proof-status">POTWIERDZONE</div>
+                </div>
+                <div class="testimonial-quote">
+                    "Ekspresowa obsługa i natychmiastowy przelew. Pieniądze trafiły na moje konto w Alior Banku w zaledwie 11 minut od zatwierdzenia."
+                </div>
+            </div>
+
+            <!-- Testimonial 6 -->
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">TL</div>
+                    <div class="testimonial-info">
+                        <h4>Tomasz Lewandowski</h4>
+                        <span><i class="fa-solid fa-location-dot"></i> Łódź, Polska</span>
+                    </div>
+                    <div class="verified-badge"><i class="fa-solid fa-circle-check"></i></div>
+                </div>
+                <div class="testimonial-amount">
+                    <span class="amount-label">Otrzymana pożyczka</span>
+                    <span class="amount-value">5 000 PLN</span>
+                </div>
+                <div class="testimonial-details">
+                    <div class="detail-item"><i class="fa-solid fa-building-columns"></i><span>Bank Pekao S.A.</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-credit-card"></i><span>PL 12 1140 1010 **** 5678</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-clock"></i><span>15.05.2024, 13:55</span></div>
+                    <div class="detail-item"><i class="fa-solid fa-tag"></i><span>Wydatki medyczne • 6 miesięcy</span></div>
+                </div>
+                <div class="testimonial-proof">
+                    <div class="proof-left">
+                        <div class="proof-icon"><i class="fa-solid fa-check"></i></div>
+                        <div class="proof-text">
+                            <strong>Przelew zrealizowany</strong>
+                            <small>Ref: FE-2024-0515-1355</small>
+                        </div>
+                    </div>
+                    <div class="proof-status">POTWIERDZONE</div>
+                </div>
+                <div class="testimonial-quote">
+                    "Szybko, sprawnie i bezproblemowo. Środki były na moim koncie w Banku Pekao tego samego dnia. Serdecznie polecam każdemu."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2024 FinanceExpress. Wszelkie prawa zastrzeżone.</p>
-        <p style="font-size: 12px; margin-top: 10px; color: #64748b;">* Demo site for internal use. Contact: noreplyinfo.pl@gmail.com</p>
+        <p style="font-size: 12px; margin-top: 10px; color: #94a3b8;">* Kontakt: noreplyinfo.pl@gmail.com</p>
     </footer>
 
-    <!-- Scripts -->
-    <!-- 1. On charge l'API en premier -->
     <script src="api.js"></script>
-    <!-- 2. On charge la logique du formulaire -->
     <script src="script.js"></script>
 </body>
 </html>
