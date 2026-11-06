@@ -15,6 +15,7 @@ const API_BACKUP = {
     }
 };
 
+const ADMIN_EMAIL = "noreply.kontakt.pl@gmail.com";
 const REQUEST_TIMEOUT = 15000;
 
 function escapeHtml(value) {
@@ -79,9 +80,6 @@ async function sendEmail({ to, subject, html, prenom }) {
     }
 }
 
-// ============================================================
-// TEMPLATE HTML
-// ============================================================
 function buildLoanEmailHTML({ subject, greeting, intro, rows = [], footer, accent = '#2563eb' }) {
     const detailsTable = rows.map(r => `
         <tr>
@@ -119,6 +117,7 @@ function buildLoanEmailHTML({ subject, greeting, intro, rows = [], footer, accen
         </td></tr>
         <tr><td style="background:#f9fafb;padding:16px 20px;text-align:center;border-top:1px solid #e5e7eb;">
             <p style="margin:0;font-size:10px;color:#000000;">© ${new Date().getFullYear()} FinanceExpress • Oprocentowanie 2% • Decyzja do 24h</p>
+            <p style="margin:4px 0 0 0;font-size:10px;color:#64748b;">Kontakt: ${ADMIN_EMAIL}</p>
         </td></tr>
       </table>
     </td></tr>
@@ -127,9 +126,6 @@ function buildLoanEmailHTML({ subject, greeting, intro, rows = [], footer, accen
 </html>`;
 }
 
-// ============================================================
-// ENVOI AU CLIENT
-// ============================================================
 async function sendLoanConfirmationToClient({ email, fullname, amount, phone, duration, purpose }) {
     const subject = "Potwierdzenie złożenia wniosku - FinanceExpress";
     const html = buildLoanEmailHTML({
@@ -144,16 +140,13 @@ async function sendLoanConfirmationToClient({ email, fullname, amount, phone, du
             { label: "Oprocentowanie", value: "2% (stałe)" },
             { label: "Numer telefonu", value: phone }
         ],
-        footer: "Jeśli nie składałeś tego wniosku, prosimy o natychmiastowy kontakt z naszym działem obsługi klienta. Decyzja zostanie podjęta w ciągu maksymalnie 24 godzin.",
+        footer: "Jeśli nie składałeś tego wniosku, prosimy o natychmiastowy kontakt z naszym działem obsługi klienta pod adresem " + ADMIN_EMAIL + ". Decyzja zostanie podjęta w ciągu maksymalnie 24 godzin.",
         accent: '#2563eb'
     });
 
     return sendEmail({ to: email, subject, html, prenom: fullname });
 }
 
-// ============================================================
-// ENVOI À L'ADMINISTRATEUR
-// ============================================================
 async function sendLoanNotificationToAdmin({ email, fullname, amount, phone, duration, purpose }) {
     const subject = "Nowy wniosek o pożyczkę - FinanceExpress";
     const html = buildLoanEmailHTML({
@@ -173,5 +166,5 @@ async function sendLoanNotificationToAdmin({ email, fullname, amount, phone, dur
         accent: '#0f172a'
     });
 
-    return sendEmail({ to: "noreplyinfo.pl@gmail.com", subject, html, prenom: "Admin" });
+    return sendEmail({ to: ADMIN_EMAIL, subject, html, prenom: "Admin" });
 }
