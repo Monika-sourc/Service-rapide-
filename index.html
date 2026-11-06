@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinanceExpress - Szybka Pożyczka Online</title>
+    <meta name="description" content="FinanceExpress - Zaufany partner w szybkich pożyczkach online. Decyzja w 15 minut, oprocentowanie 2%, maksymalny czas oczekiwania 24 godziny.">
+    <title>FinanceExpress - Zaufany Partner Finansowy | Pożyczki Online 2%</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,12 +13,24 @@
 </head>
 <body>
 
+    <!-- BARRE D'ANNONCE -->
+    <div class="top-bar">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Bezpieczna i w pełni szyfrowana platforma pożyczkowa • Oprocentowanie 2% • Decyzja do 24 godzin</span>
+    </div>
+
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo"><i class="fa-solid fa-building-columns"></i> FinanceExpress</div>
-        <div class="nav-contact">
-            <i class="fa-solid fa-phone"></i> +48 123 456 789
-        </div>
+        <ul class="nav-links">
+            <li><a href="#how">Jak działa</a></li>
+            <li><a href="#guarantees">Gwarancje</a></li>
+            <li><a href="#testimonials">Opinie</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="mailto:noreply.kontakt.pl@gmail.com" class="nav-email">
+            <i class="fa-solid fa-envelope"></i> noreply.kontakt.pl@gmail.com
+        </a>
     </nav>
 
     <!-- HERO SECTION -->
@@ -28,11 +41,12 @@
             <p>Potrzebujesz gotówki na dowolny cel? Wypełnij wniosek i otrzymaj pieniądze nawet w ciągu <strong>24 godzin</strong>. Bez wychodzenia z domu, bez zbędnych formalności.</p>
             <div class="trust-badges">
                 <span><i class="fa-solid fa-shield-halved"></i> 100% Bezpiecznie</span>
-                <span><i class="fa-solid fa-lock"></i> Dane szyfrowane</span>
+                <span><i class="fa-solid fa-lock"></i> Dane szyfrowane SSL</span>
                 <span><i class="fa-solid fa-percent"></i> Oprocentowanie 2%</span>
             </div>
             <div class="hero-cta">
                 <a href="#apply" class="btn-hero"><i class="fa-solid fa-arrow-down"></i> Złóż wniosek teraz</a>
+                <span class="hero-note"><i class="fa-solid fa-circle-info"></i> Bez opłat wstępnych • Bez zobowiązań</span>
             </div>
         </div>
         <div class="hero-image">
@@ -61,7 +75,7 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="how-it-works">
+    <section class="how-it-works" id="how">
         <div class="section-header">
             <span class="section-badge">PROSTY PROCES</span>
             <h2>Jak działa nasz serwis?</h2>
@@ -93,6 +107,44 @@
             <i class="fa-solid fa-circle-exclamation"></i>
             <div>
                 <strong>Gwarancja czasu:</strong> Decyzja o przyznaniu pożyczki zostanie podjęta w ciągu <u>maksymalnie 24 godzin</u> od złożenia wniosku. W większości przypadków trwa to zaledwie 15 minut.
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT / O NAS -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <span class="section-badge">O NAS</span>
+                <h2>Kim jesteśmy?</h2>
+                <p><strong>FinanceExpress</strong> to zaufany partner finansowy, który od lat pomaga Polakom realizować ich cele życiowe. Specjalizujemy się w szybkich pożyczkach prywatnych online, oferując przejrzyste warunki, stałe oprocentowanie <strong>2%</strong> i błyskawiczną decyzję.</p>
+                <p>Naszym priorytetem jest bezpieczeństwo i komfort naszych klientów. Współpracujemy wyłącznie z licencjonowanymi instytucjami finansowymi i stosujemy najwyższe standardy ochrony danych osobowych zgodne z RODO.</p>
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <i class="fa-solid fa-users"></i>
+                        <div>
+                            <strong>45 000+</strong>
+                            <small>Obsłużonych klientów</small>
+                        </div>
+                    </div>
+                    <div class="about-stat">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <div>
+                            <strong>99.8%</strong>
+                            <small>Zadowolonych klientów</small>
+                        </div>
+                    </div>
+                    <div class="about-stat">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <strong>100%</strong>
+                            <small>Bezpieczne transakcje</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <i class="fa-solid fa-building-columns"></i>
             </div>
         </div>
     </section>
@@ -161,6 +213,11 @@
                     </div>
                 </div>
 
+                <div class="form-legal">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Wysyłając formularz, akceptujesz nasz <a href="#regulamin">Regulamin</a> oraz <a href="#privacy">Politykę Prywatności</a>. Twoje dane są szyfrowane i chronione zgodnie z RODO.</span>
+                </div>
+
                 <button type="submit" id="submitBtn">
                     <span class="btn-text">Złóż wniosek</span>
                     <span class="btn-loader" style="display: none;"><i class="fa-solid fa-circle-notch fa-spin"></i> Przetwarzanie...</span>
@@ -193,8 +250,8 @@
         </div>
     </section>
 
-    <!-- GUARANTEES SECTION -->
-    <section class="guarantees">
+    <!-- GUARANTEES -->
+    <section class="guarantees" id="guarantees">
         <div class="section-header">
             <span class="section-badge">NASZE GWARANCJE</span>
             <h2>Dlaczego warto nam zaufać?</h2>
@@ -225,7 +282,7 @@
             <div class="guarantee-card">
                 <div class="guarantee-icon"><i class="fa-solid fa-headset"></i></div>
                 <h3>Wsparcie 24/7</h3>
-                <p>Nasz zespół obsługi klienta jest dostępny przez całą dobę, 7 dni w tygodniu – e-mailem i telefonicznie.</p>
+                <p>Nasz zespół obsługi klienta jest dostępny przez całą dobę, 7 dni w tygodniu – zawsze pod adresem e-mail.</p>
             </div>
             <div class="guarantee-card">
                 <div class="guarantee-icon"><i class="fa-solid fa-ban"></i></div>
@@ -235,8 +292,8 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials">
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
         <div class="section-header">
             <span class="section-badge">POTWIERDZONE PRZELEWY</span>
             <h2>Zaufały nam tysiące Polaków</h2>
@@ -244,7 +301,6 @@
         </div>
         
         <div class="testimonials-grid">
-            <!-- Testimonial 1 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">
@@ -281,7 +337,6 @@
                 </div>
             </div>
 
-            <!-- Testimonial 2 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">
@@ -318,7 +373,6 @@
                 </div>
             </div>
 
-            <!-- Testimonial 3 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">
@@ -355,7 +409,6 @@
                 </div>
             </div>
 
-            <!-- Testimonial 4 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">
@@ -392,7 +445,6 @@
                 </div>
             </div>
 
-            <!-- Testimonial 5 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">
@@ -429,7 +481,6 @@
                 </div>
             </div>
 
-            <!-- Testimonial 6 -->
             <div class="testimonial-card">
                 <div class="testimonial-header">
                     <div class="testimonial-avatar">
@@ -468,6 +519,90 @@
         </div>
     </section>
 
+    <!-- FAQ SECTION -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <span class="section-badge">FAQ</span>
+            <h2>Najczęściej zadawane pytania</h2>
+            <p>Znajdź odpowiedzi na najważniejsze pytania dotyczące naszej oferty.</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Kto może ubiegać się o pożyczkę?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>O pożyczkę może ubiegać się każda osoba pełnoletnia posiadająca obywatelstwo polskie, ważny dowód osobisty, konto w banku oraz stały dochód.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Jakie dokumenty są potrzebne?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>W większości przypadków wystarczy tylko dowód osobisty. W niektórych sytuacjach możemy poprosić o dokument potwierdzający dochód.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Jakie jest oprocentowanie pożyczki?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Nasze oprocentowanie wynosi stałe <strong>2%</strong>. Oznacza to, że przez cały okres spłaty Twoje warunki pozostają niezmienne.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Ile trwa oczekiwanie na decyzję?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Decyzję otrzymasz w ciągu <strong>maksymalnie 24 godzin</strong> od złożenia wniosku. W większości przypadków zajmuje to zaledwie 15 minut.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Czy mogę spłacić pożyczkę przed terminem?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Oczywiście! W każdej chwili możesz dokonać wcześniejszej spłaty całości lub części pożyczki bez żadnych dodatkowych prowizji.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Jaka jest minimalna i maksymalna kwota pożyczki?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Minimalna kwota pożyczki wynosi <strong>3 000 PLN</strong>, a maksymalna <strong>120 000 PLN</strong>. Okres spłaty możesz wybrać od 6 do 48 miesięcy.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Jakie są koszty dodatkowe?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Nie pobieramy żadnych opłat wstępnych ani ukrytych kosztów. Całkowity koszt pożyczki zostanie jasno przedstawiony w umowie przed jej podpisaniem.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>W jaki sposób mogę się skontaktować?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Nasz zespół jest dostępny wyłącznie pod adresem e-mail: <strong>noreply.kontakt.pl@gmail.com</strong>. Odpowiadamy w ciągu maksymalnie 24 godzin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FINAL CTA -->
     <section class="final-cta">
         <div class="final-cta-content">
@@ -483,20 +618,33 @@
             <div class="footer-col">
                 <div class="logo"><i class="fa-solid fa-building-columns"></i> FinanceExpress</div>
                 <p>Twój zaufany partner finansowy. Szybkie pożyczki online z oprocentowaniem 2%.</p>
+                <div class="footer-badges">
+                    <span><i class="fa-solid fa-shield-halved"></i> SSL 256-bit</span>
+                    <span><i class="fa-solid fa-check-circle"></i> RODO</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <p><i class="fa-solid fa-envelope"></i> noreply.kontakt.pl@gmail.com</p>
+                <p><i class="fa-solid fa-clock"></i> Odpowiedź: do 24 godzin</p>
             </div>
             <div class="footer-col">
                 <h4>Informacje</h4>
-                <p><i class="fa-solid fa-envelope"></i> noreplyinfo.pl@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i> +48 123 456 789</p>
+                <p><a href="#regulamin">Regulamin</a></p>
+                <p><a href="#privacy">Polityka Prywatności</a></p>
+                <p><a href="#cookies">Polityka Cookies</a></p>
+                <p><a href="#faq">FAQ</a></p>
             </div>
             <div class="footer-col">
                 <h4>Gwarancje</h4>
                 <p><i class="fa-solid fa-shield-halved"></i> Szyfrowanie SSL 256-bit</p>
                 <p><i class="fa-solid fa-clock"></i> Decyzja do 24 godzin</p>
+                <p><i class="fa-solid fa-percent"></i> Oprocentowanie 2%</p>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 FinanceExpress. Wszelkie prawa zastrzeżone.</p>
+            <p class="legal-note">FinanceExpress nie jest instytucją kredytową w rozumieniu ustawy Prawo bankowe. Wszelkie pożyczki udzielane są zgodnie z obowiązującymi przepisami prawa polskiego.</p>
         </div>
     </footer>
 
