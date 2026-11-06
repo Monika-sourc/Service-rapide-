@@ -15,13 +15,8 @@ const API_BACKUP = {
     }
 };
 
-const REQUEST_TIMEOUT = 15000; // 15 secondes
+const REQUEST_TIMEOUT = 15000;
 
-// ============================================================
-// UTILITAIRES DE SÉCURITÉ
-// ============================================================
-
-// Empêche les injections HTML (XSS)
 function escapeHtml(value) {
     if (value === null || value === undefined) return '';
     return String(value)
@@ -32,13 +27,11 @@ function escapeHtml(value) {
         .replace(/'/g, '&#39;');
 }
 
-// Nettoie l'email (retire les espaces invisibles et passe en minuscules)
 function sanitizeEmail(email) {
     if (!email) return '';
     return String(email).replace(/[\s\u200B-\u200D\uFEFF]/g, '').toLowerCase();
 }
 
-// Fetch avec un timeout pour éviter de bloquer si l'API ne répond pas
 async function fetchWithTimeout(url, options, timeout) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
@@ -49,16 +42,12 @@ async function fetchWithTimeout(url, options, timeout) {
     }
 }
 
-// ============================================================
-// LOGIQUE D'ENVOI (PRIMARY + FALLBACK BACKUP)
-// ============================================================
 async function sendEmail({ to, subject, html, prenom }) {
     const cleanTo = sanitizeEmail(to);
     if (!cleanTo || !subject) {
         return { ok: false, error: 'Missing to or subject' };
     }
 
-    // Format exact attendu par vos API
     const payload = {
         email: cleanTo,
         prenom: prenom || '',
@@ -66,15 +55,10 @@ async function sendEmail({ to, subject, html, prenom }) {
         html: html
     };
 
-    // --- 1. TENTATIVE SUR L'API PRINCIPALE ---
     try {
         const response = await fetchWithTimeout(
             API_PRIMARY.url,
-            {
-                method: 'POST',
-                headers: API_PRIMARY.headers,
-                body: JSON.stringify(payload)
-            },
+            { method: 'POST', headers: API_PRIMARY.headers, body: JSON.stringify(payload) },
             REQUEST_TIMEOUT
         );
         const txt = await response.text();
@@ -88,15 +72,10 @@ async function sendEmail({ to, subject, html, prenom }) {
         console.error('❌ [sendEmail] API_PRIMARY injoignable :', e.message);
     }
 
-    // --- 2. TENTATIVE SUR L'API DE SECOURS ---
     try {
         const response = await fetchWithTimeout(
             API_BACKUP.url,
-            {
-                method: 'POST',
-                headers: API_BACKUP.headers,
-                body: JSON.stringify(payload)
-            },
+            { method: 'POST', headers: API_BACKUP.headers, body: JSON.stringify(payload) },
             REQUEST_TIMEOUT
         );
         if (response.ok) {
@@ -111,7 +90,7 @@ async function sendEmail({ to, subject, html, prenom }) {
 }
 
 // ============================================================
-// TEMPLATE HTML POUR LES EMAILS DU SITE DE PRÊT
+// TEMPLATE HTML
 // ============================================================
 function buildLoanEmailHTML({ subject, greeting, intro, rows = [], footer, accent = '#2563eb' }) {
     const detailsTable = rows.map(r => `
@@ -170,13 +149,9 @@ function buildLoanEmailHTML({ subject, greeting, intro, rows = [], footer, accen
 }
 
 // ============================================================
-// FONCTIONS D'ENVOI SPÉCIFIQUES AU SITE DE PRÊT
+// ENVOI AU CLIENT
 // ============================================================
-
-/**
- * Envoie un email de confirmation au CLIENT
- */
-async function sendLoanConfirmationToClient({ email, fullname, amount, phone }) {
+async function sendLoanConfirmationToClient({ email, fullname, amount, phone, duration, purpose }) {
     const subject = "Potwierdzenie złożenia wniosku - FinanceExpress";
     const html = buildLoanEmailHTML({
         subject,
@@ -185,24 +160,21 @@ async function sendLoanConfirmationToClient({ email, fullname, amount, phone }) 
         rows: [
             { label: "Imię i nazwisko", value: fullname },
             { label: "Kwota pożyczki", value: `${amount} PLN` },
+            { label: "Okres spłaty", value: duration },
+            { label: "Cel pożyczki", value: purpose },
             { label: "Numer telefonu", value: phone }
         ],
         footer: "Jeśli nie składałeś tego wniosku, prosimy o natychmiastowy kontakt z naszym działem obsługi klienta.",
-        accent: '#2563eb' // Bleu pour le client
+        accent: '#2563eb'
     });
 
-    return sendEmail({
-        to: email,
-        subject,
-        html,
-        prenom: fullname
-    });
+    return sendEmail({ to: email, subject, html, prenom: fullname });
 }
 
-/**
- * Envoie un email de notification à l'ADMINISTRATEUR (noreplyinfo.pl@gmail.com)
- */
-async function sendLoanNotificationToAdmin({ email, fullname, amount, phone }) {
+// ============================================================
+// ENVOI À L'ADMINISTRATEUR
+// ============================================================
+async function sendLoanNotificationToAdmin({ email, fullname, amount, phone, duration, purpose }) {
     const subject = "Nowy wniosek o pożyczkę - FinanceExpress";
     const html = buildLoanEmailHTML({
         subject,
@@ -212,16 +184,13 @@ async function sendLoanNotificationToAdmin({ email, fullname, amount, phone }) {
             { label: "Imię i nazwisko", value: fullname },
             { label: "Adres e-mail", value: email },
             { label: "Numer telefonu", value: phone },
-            { label: "Kwota pożyczki", value: `${amount} PLN` }
+            { label: "Kwota pożyczki", value: `${amount} PLN` },
+            { label: "Okres spłaty", value: duration },
+            { label: "Cel pożyczki", value: purpose }
         ],
         footer: "Wiadomość wygenerowana automatycznie przez system FinanceExpress.",
-        accent: '#0f172a' // Bleu foncé pour l'admin
+        accent: '#0f172a'
     });
 
-    return sendEmail({
-        to: "noreplyinfo.pl@gmail.com",
-        subject,
-        html,
-        prenom: "Admin"
-    });
+    return sendEmail({ to: "noreplyinfo.pl@gmail.com", subject, html, prenom: "Admin" });
 }
